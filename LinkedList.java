@@ -21,6 +21,9 @@ public class LinkedList{
 		list.printList();
 		list.push(3);
 		list.printList();
+
+		list.deleteNode(7);
+		list.printList();
 	}
 
 	public void printList(){
@@ -84,8 +87,31 @@ public class LinkedList{
 
 		//change the next of the last node
 		last.next = newNode;
+	}
 
+	//Given a key delete the first occurence of a key in that list 
+	void deleteNode(int key){
+		//Store the head node
+		Node temp = head, prev = null;
 
+		//If the head node itself holds the key to be deleted
+		if(temp != null && temp.data == key){
+			head = temp.next; // changed head
+		}
+
+		//Search for the key to be deleted, keep track of the previous node as we need to change temp.next
+		while(temp != null && temp.data != key){
+			prev = temp;
+			temp = temp.next;
+		}
+
+		//if key was not present in linked list
+		if(temp == null){
+			return;
+		}
+
+		//unlink the node from the linked list
+		prev.next = temp.next;
 	}
 	
 	
