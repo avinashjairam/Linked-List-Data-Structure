@@ -10,5 +10,8 @@ public class Test{
 
 		list.insertAfter(list.head.next,1);
 		list.printList();
+
+		list.deleteNode(1);
+		list.printList();
 	}
 }

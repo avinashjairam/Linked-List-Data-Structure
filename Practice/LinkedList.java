@@ -58,4 +58,31 @@ public class LinkedList{
 		}
 		System.out.println();
 	}
+
+	//Deletes the first occurence of a key in a linked list
+	public void deleteNode(int key){
+		//Store head node
+		Node temp = head, prev = null;
+
+		//Check to see if the head itself is the node to be deleted
+		if(temp != null && head.data == key){
+			head = temp.next;
+			return;
+		}
+
+		//Otherwise find the previous node
+
+		while(temp != null && temp.data != key){
+			prev = temp;
+			temp = temp.next;
+		}
+
+		//If the key is not found, return
+		if(temp == null){
+			return;
+		}
+
+		//Unlink the node to be deleted from the link list
+		prev.next = temp.next;
+	}
 }
