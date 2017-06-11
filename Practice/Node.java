@@ -1,9 +1,9 @@
 public class Node{
 	int data;
-	Node node;
+	Node next;
 
 	public Node(int data){
 		this.data = data;
-		this.node = null
+		this.next = null;
 	}
 }
