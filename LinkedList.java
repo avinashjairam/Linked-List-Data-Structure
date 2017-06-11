@@ -22,7 +22,7 @@ public class LinkedList{
 		list.push(3);
 		list.printList();
 
-		list.deleteNode(7);
+		list.deleteNodeAtPosition(2);
 		list.printList();
 	}
 
@@ -90,7 +90,7 @@ public class LinkedList{
 	}
 
 	//Given a key delete the first occurence of a key in that list 
-	void deleteNode(int key){
+	public void deleteNode(int key){
 		//Store the head node
 		Node temp = head, prev = null;
 
@@ -112,6 +112,39 @@ public class LinkedList{
 
 		//unlink the node from the linked list
 		prev.next = temp.next;
+	}
+
+	public void deleteNodeAtPosition(int position){
+		//If the linked list is empty
+		if(head == null){
+			return;
+		}
+
+		//Store node head
+		Node temp = head;
+
+		//If the head needs to be removed
+		if(position == 0){
+			head = temp.next; //change head
+			return; 
+		}
+
+		//Find the previous node of the node to be deleted
+		for(int i = 0; temp != null && i < position - 1; i++){
+			temp = temp.next;
+		}
+
+		//If the position is more than the number of nodes
+		if(temp == null || temp.next == null){
+			return;
+		}
+
+		//Node temp-next is the node to be deleted
+		//Store the pointer to the next of the node to be deleted 
+		Node next = temp.next.next;
+		temp.next = next;
+
+
 	}
 	
 	
